@@ -8,11 +8,11 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
-	"github.com/nareix/bits/pio"
-	"github.com/nareix/joy4/av"
-	"github.com/nareix/joy4/av/avutil"
-	"github.com/nareix/joy4/format/flv"
-	"github.com/nareix/joy4/format/flv/flvio"
+	"github.com/laice/bits/pio"
+	"github.com/laice/joy4/av"
+	"github.com/laice/joy4/av/avutil"
+	"github.com/laice/joy4/format/flv"
+	"github.com/laice/joy4/format/flv/flvio"
 	"io"
 	"net"
 	"net/url"
@@ -588,7 +588,7 @@ func (self *Conn) probe() (err error) {
 		}
 	}
 
-	self.streams = self.prober.Streams
+	self.streams = self.prober.Streams //self.prober.Streams
 	self.stage++
 	return
 }

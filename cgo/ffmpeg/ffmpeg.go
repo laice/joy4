@@ -1,10 +1,10 @@
 package ffmpeg
 
 /*
-#cgo LDFLAGS: -lavformat -lavutil -lavcodec -lavresample -lswscale
+#cgo LDFLAGS: -lavformat -lavutil -lavcodec -lswresample -lswscale
 #include "ffmpeg.h"
 void ffinit() {
-	av_register_all();
+	//av_register_all();
 }
 */
 import "C"
@@ -14,16 +14,20 @@ import (
 )
 
 const (
-	QUIET = int(C.AV_LOG_QUIET)
-	PANIC = int(C.AV_LOG_PANIC)
-	FATAL = int(C.AV_LOG_FATAL)
-	ERROR = int(C.AV_LOG_ERROR)
+	QUIET   = int(C.AV_LOG_QUIET)
+	PANIC   = int(C.AV_LOG_PANIC)
+	FATAL   = int(C.AV_LOG_FATAL)
+	ERROR   = int(C.AV_LOG_ERROR)
 	WARNING = int(C.AV_LOG_WARNING)
-	INFO = int(C.AV_LOG_INFO)
+	INFO    = int(C.AV_LOG_INFO)
 	VERBOSE = int(C.AV_LOG_VERBOSE)
-	DEBUG = int(C.AV_LOG_DEBUG)
-	TRACE = int(C.AV_LOG_TRACE)
+	DEBUG   = int(C.AV_LOG_DEBUG)
+	TRACE   = int(C.AV_LOG_TRACE)
 )
+
+//const (
+//	CODEC_PCM_S16LE = int(C.enum_AV_CODEC_ID_PCM_S16LE)
+//)
 
 func HasEncoder(name string) bool {
 	return C.avcodec_find_encoder_by_name(C.CString(name)) != nil
@@ -71,4 +75,3 @@ func freeFFCtx(self *ffctx) {
 		C.av_dict_free(&ff.options)
 	}
 }
-

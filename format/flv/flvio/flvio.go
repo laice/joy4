@@ -2,8 +2,8 @@ package flvio
 
 import (
 	"fmt"
-	"github.com/nareix/bits/pio"
-	"github.com/nareix/joy4/av"
+	"github.com/laice/bits/pio"
+	"github.com/laice/joy4/av"
 	"io"
 	"time"
 )

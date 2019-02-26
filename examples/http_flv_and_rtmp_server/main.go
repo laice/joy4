@@ -1,15 +1,15 @@
 package main
 
 import (
-	"sync"
+	"github.com/laice/joy4/av/avutil"
+	"github.com/laice/joy4/av/pubsub"
+	"github.com/laice/joy4/format"
+	"github.com/laice/joy4/format/flv"
+	"github.com/laice/joy4/format/rtmp"
 	"io"
-	"time"
 	"net/http"
-	"github.com/nareix/joy4/format"
-	"github.com/nareix/joy4/av/avutil"
-	"github.com/nareix/joy4/av/pubsub"
-	"github.com/nareix/joy4/format/rtmp"
-	"github.com/nareix/joy4/format/flv"
+	"sync"
+	"time"
 )
 
 func init() {
